@@ -5,6 +5,7 @@ import numpy as np
 import pandas as pd
 from src.exceptions import Customed_exception
 from sklearn.metrics import r2_score
+from sklearn.model_selection import GridSearchCV
 
 def SaveObject(file_path, obj):
     try:
@@ -22,15 +23,15 @@ def model_evaluation(X_train, y_train,X_test,y_test,models,param):
 
         for i in range(len(list(models))):
             model = list(models.values())[i]
-           #para=param[list(models.keys())[i]]
+            para=param[list(models.keys())[i]]
 
-           #gs = GridSearchCV(model,para,cv=3)
-           #gs.fit(X_train,y_train)
+            gs = GridSearchCV(model,para,cv=4)
+            gs.fit(X_train,y_train)
 
-           #model.set_params(**gs.best_params_)
+            model.set_params(**gs.best_params_)
             model.fit(X_train,y_train)
 
-            #model.fit(X_train, y_train)  # Train model
+            model.fit(X_train, y_train)  # Train model
 
             y_train_pred = model.predict(X_train)
 
