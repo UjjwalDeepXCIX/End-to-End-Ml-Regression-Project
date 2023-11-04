@@ -5,8 +5,10 @@ from src.logs import logging
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from dataclasses import dataclass
-from src.components.data_transformation import datatransformation
 
+from src.components.data_transformation import datatransformation
+from src.components.trainer import ModelTrainer
+from src.components.trainer import ModelTrainerConfig
 @dataclass
 class ConfigDataIngestion:
     raw_data_path: str= os.path.join('artifacts',"data.csv")
@@ -44,4 +46,7 @@ if __name__ == '__main__':
     train_data, test_data = obj.initiate_DI()
 
     datatransform = datatransformation()
-    datatransform.initiate_DT(train_data, test_data)
+    train_array, test_array,_=datatransform.initiate_DT(train_data, test_data)
+
+    model_trainer = ModelTrainer()
+    print(model_trainer.initiate_trainer(train_array, test_array))
