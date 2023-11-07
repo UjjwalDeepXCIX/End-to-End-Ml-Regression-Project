@@ -1,6 +1,7 @@
 <h1 align="center">Math Score Predictor</h1>
 <h3 align="left"> An end to end ml project with ci pipeline </h3>
 
+## AWS DEPLOYMENT LINK- [](http://mathscore-env.eba-tftpgahj.us-east-1.elasticbeanstalk.com/)
 <p align="center">
   <img src="https://github.com/NeuTRONz3R0/End-to-End-Ml-Regression-Project/assets/81875502/e41ab9a6-0ba1-4727-9deb-a95e35efb9e7" width='600'>
 
